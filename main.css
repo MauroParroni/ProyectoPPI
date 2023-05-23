@@ -1,0 +1,75 @@
+body{ /* aca se utiliza un sistema de grillas para dividir la pag*/
+    display: grid;
+    grid-template-areas:
+    "nav nav nav nav"
+    "header header header header"
+    "main main main main"
+    "footer footer footer footer" 
+    ;
+    grid-template-rows: auto auto auto auto; 
+    grid-template-columns: auto auto auto auto;
+
+    column-gap: 10px;
+    height: 100%;
+    margin: 0;
+    background-color: #b3bbc1 !important;
+
+}
+main{
+    grid-area: main;
+    background-image: url(/images/Fondo.jpg);
+    background-size: cover;	 
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+}
+
+header{
+    grid-area: header;
+}
+nav{
+    grid-area: nav;
+    background: rgb(31,31,221);
+    background: linear-gradient(177deg, rgba(31,31,221,1) 1%, rgba(97,151,255,1) 100%);
+}
+footer{
+    grid-area: footer;
+
+}
+.row{
+    --bs-gutter-x: 0 !important;
+    row-gap: 10px;
+
+}
+.textoCentrado{
+    text-align: center;
+    padding-top: 30px;
+}
+.centrado{
+    display: flex;
+    justify-content: center;
+}
+.xd{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+}
+.barraNav{
+    display: flexbox;
+    margin: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius:7px;
+    text-align: center;
+    border: dotted 1px;
+}
+.h66{
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.barraNav:hover{
+    box-shadow: 5px 8px 10px black;
+    transform: scale(1.1,1.1);
+    transition: all 0.5s;
+}
