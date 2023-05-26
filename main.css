@@ -17,7 +17,7 @@ body{ /* aca se utiliza un sistema de grillas para dividir la pag*/
 }
 main{
     grid-area: main;
-    background-image: url(/images/Fondo.jpg);
+    background-image: url(./images/Fondo.jpg);
     background-size: cover;	 
     background-repeat: no-repeat;
     background-attachment: fixed;  
