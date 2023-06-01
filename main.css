@@ -73,3 +73,20 @@ footer{
     transform: scale(1.1,1.1);
     transition: all 0.5s;
 }
+
+/* Estilo botón Carreras */
+
+#navbarDropdown{
+    color: white;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #1e58cb;
+    color: white;
+}
+
+/* Estilo botón Carreras */
