@@ -19,7 +19,6 @@ function llamarBaseDeDatos() {
   }
   llamarBaseDeDatos();
   console.log(baseRegistro);
-console.log("xdxdxd")
 const form = document.querySelector(".Formulario_registro");
 form.addEventListener("submit", (e) => {
     e.preventDefault();

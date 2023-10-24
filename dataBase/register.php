@@ -1,6 +1,6 @@
 <?php
     $conect = mysqli_connect('localhost', 'root', '', 'register') or die ('Error de conexion');
-    $sql = "SELECT * FROM register"; // Por ejemplo, aquí seleccionamos todos los registros de la tabla "register".
+    $sql = "SELECT * FROM datos"; // Por ejemplo, aquí seleccionamos todos los registros de la tabla "register".
     $res = mysqli_query($conect, $sql);
 
     // Verificar si la consulta se realizó correctamente
