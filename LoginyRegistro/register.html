@@ -12,7 +12,9 @@
 </head>
 <body>
   <header class="row"> <!-- la cabeza de pagina -->
-    <img src="../images/61df8a6d-967d-48f3-b844-2a02c9fba4a4.png"  class="img-fluid" alt="Responsive image">
+    <div class="d-flex flex-column flex-md-row justify-content-between py-4 px-4 px-xl-5 bg-primary">
+
+    </div>
          </header>
            <main>
             <section class=" container-sm">
@@ -22,38 +24,56 @@
                     <img src="../images/logo_beppo.png"
                       class="img-fluid" alt="Sample image">
                   </div>
-                  <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                    <form class="Formulario_registro"> 
-                      <div class="form-outline mb-4">
-                        <input type="DNI" id="DNI" class="form-control form-control-lg"
-                          placeholder="Ingrese DNI" />
-                        <label class="form-label" for="DNI">DNI</label>
-                        <span id="errordni" style="color: red; display: none;"></span>
-                      </div>          
-                      <!-- Ingreso del nombre-->
-                      <div class="form-outline mb-4">
-                        <input type="nombre" id="nombre" class="form-control form-control-lg"
-                          placeholder="Ingrese Nombre" />
-                        <label class="form-label" for="nombre">Nombre</label>
+                  <div class="col-md-8 col-lg-6 col-xl-8 offset-x1-1">
+                    <form class="Formulario_registro">
+                        
+                        <!-- Ingreso del nombre -->
+                        <div class="form-outline mb-4">
+                            <input type="text" name="nombre" id="nombre" class="form-control form-control-lg"
+                                placeholder="Ingrese Nombre" />
+                            <label class="form-label" for="nombre">Nombre</label>
+                        </div>
+                
+                        <!-- Ingreso del apellido -->
+                        <div class="form-outline mb-3">
+                            <input type="text" name="apellido" id="apellido" class="form-control form-control-lg"
+                                placeholder="Ingrese Apellido" />
+                            <label class="form-label" for="apellido">Apellido</label>
+                        </div>
+
+                        <!-- Ingreso del DNI -->
+                        <div class="form-outline mb-4">
+                          <input type="text" name="DNI" id="DNI" class="form-control form-control-lg"
+                            placeholder="Ingrese DNI" />
+                          <label class="form-label" for="DNI">DNI</label>
+                          <span id="errordni" style="color: red; display: none;"></span>
+                        </div>
+
+                        <!-- Ingreso del teléfono -->
+                        <div class="form-outline mb-4">
+                            <input type="text" name="telefono" id="telefono" class="form-control form-control-lg"
+                                placeholder="Ingrese el Teléfono" />
+                            <label class="form-label" for="telefono">Teléfono</label>
+                        </div>
+
+                        <!-- Ingreso del email -->
+                        <div class="form-outline mb-4">
+                          <input type="text" name="email" id="email" class="form-control form-control-lg"
+                              placeholder="Ingrese Email" />
+                          <label class="form-label" for="email">E-mail</label>
                       </div>
-            
-                      <!--Ingreso del apellido -->
-                      <div class="form-outline mb-3">
-                        <input type="apellido" id="apellido" class="form-control form-control-lg"
-                          placeholder="Ingrese Apellido" />
-                        <label class="form-label" for="apellido">Apellido</label>
-                      </div>
-                      <!--Ingreso del Telefono-->
+
+                      <!-- Ingreso de contraseña -->
                       <div class="form-outline mb-4">
-                        <input type="Telefono" id="Telefono" class="form-control form-control-lg"
-                          placeholder="Ingrese el Telefono" />
-                        <label class="form-label" for="Telefono">Telefono</label>
-                      </div>                          
+                        <input type="password" name="contraseña" id="contraseña" class="form-control form-control-lg"
+                            placeholder="Ingrese Contraseña" />
+                        <label class="form-label" for="Contraseña">Contraseña</label>
+                    </div>
                         <button type="submit" class="btn btn-primary btn-sm"
-                          style="padding-left: 2.5rem; padding-right: 2.5rem;">Registrarme
-                        </button>            
+                            style="padding-left: 2.5rem; padding-right: 2.5rem;">Registrar
+                        </button>
                     </form>
-                  </div>
+                </div>                
                 </div>
               </div>
             </section>
@@ -62,7 +82,7 @@
             <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
                 <!-- Copyright -->
                 <div class="text-white mb-3 mb-md-0">
-                  Copyright © 2023. todos los derechos reservados a Brian L., Franco L., Jeremías C., Mauro P., Maximiliano C.
+                  Copyright © 2023. todos los derechos reservados a Franco L., Jeremías C., Mauro P., Maximiliano C.
                 </div>
            </footer>
            <script src="../script.js"></script>
