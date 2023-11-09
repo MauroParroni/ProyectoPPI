@@ -15,10 +15,10 @@
       <img src="./images/61df8a6d-967d-48f3-b844-2a02c9fba4a4.png"  class="img-fluid" alt="Responsive image">
            </header>
            <nav> <!--barra de navegacion con sus respectivos dropdowns correspondientes-->
-             <div class="container-fluid navbar navbar-expand-lg navbar-light">
+             <div class="navbar navbar-expand-md shadow-sm bg-primary p-1 fixed-top aos-init aos-animate" data-bs-theme="dark" id="navbar" data-aos="fade-right">
                <div>
                  <a class="navbar-brand" href="./index.html">
-                   <img src="./images/logo_beppo.png" alt="" width="40" height="40">
+                   <img src="./images/logo_beppo.png" alt="" width="50" height="50">
                  </a>
                </div>
                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,13 +58,13 @@
                      <a class="nav-link" href="#"></a>
                    </li>
                  </ul>
-                 <div class="col-1">
+                 <div class="col-1 justify-content-end py-1 px-5 px-xxl-5">
                   <button type="button" class="btn btn-secondary" id="BtnIngresar">
-                   <a href="./LoginyRegistro/login.html" style="text-decoration: none; color: white;"> Ingresar</a></button>
+                   <a href="./LoginyRegistro/login.html" style="text-decoration: none; color: white;"> Ingreso</a></button>
                 </div>
-                <div class="col-1">
+                <div class="col-1 justify-content-end py-1 px-5 px-xxl-5">
                   <button type="button" class="btn btn-secondary" id="BtnRegistrarme">
-                   <a href="./LoginyRegistro/register.html" style="text-decoration: none; color: white;"> Registrarme</a></button>
+                   <a href="./LoginyRegistro/register.html" style="text-decoration: none; color: white;"> Inscripción</a></button>
                 </div>
                 <div class="col-1">
                   <button type="button" class="btn btn-tertiary" id="BtnCerrarSesion" style="display: none;">
@@ -108,6 +108,63 @@
                       <p class="lead">Santa Fe – República Argentina</p> 
                       <p class="lead"> Tel.: (0341) 4247844</p>
                     </div>
+                  </div>
+                  <!-- Redes sociales y Contacto-->
+                  <div class="row g-col-12 p-3">
+                    <p class="fw-bold text-danger text-center">Días y horarios de Atención: Lunes a Viernes de 19:00 a 21:00 horas
+                    </p>
+                </div>
+                <section class="py-3 my-3 aos-init aos-animate" data-aos="zoom-in" id="Contacto">
+                  <div class="container grid text-center pt-3 ">
+                      <div class="row g-col-12 p-3">
+                          <h3 class="text-decoration-underline">Podes contactarnos en:</h3>
+                      </div>
+                      <div class="row filaSociales">
+                          <div class="col-lg-4 m-lg-2">
+                              <div class="row my-3">
+                                  <a href="https://www.instagram.com/iset25beppolevi" target="_blank" class="fw-bold fs-5">
+                                      <i class="bi bi-instagram"></i>
+                                      Instagram
+                                  </a>
+                              </div>
+                              <div class="row">
+                                  <iframe src="https://www.instagram.com/iset25beppolevi/embed" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 m-lg-2">
+                              <div class="row my-3">
+                                  <a href="https://www.facebook.com/ISET25/?locale=es_LA" target="_blank" class="fw-bold fs-5">
+                                      <i class="bi bi-facebook"></i>
+                                      Facebook
+                                  </a>
+                              </div>
+                              <div class="row">
+                                  <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/ISET25/?locale=es_LA&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                              </div>
+                          </div>
+                          <div class="col-lg-3 mt-3">
+                              <div class="row">
+                                  <h3 class="text-decoration-underline" style="color:rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1)); font-size: 1.30rem!important;">Gmail</h3>
+                              </div>
+                              <div class="row text-center">
+                                  <form class="col-md-6" id="form" style="width: 100%;">
+                                      <div class="mb-3">
+                                          <label for="name" class="form-label labels">Nombre (requerido)</label>
+                                          <input type="text" class="form-control" id="name" name="name" required="">
+                                      </div>
+                                      <div class="mb-3">
+                                          <label for="email" class="form-label">Tú correo electrónico (requerido)</label>
+                                          <input type="email" class="form-control" id="email" name="email" required="">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label for="message" class="form-label">Mensaje (requerido)</label>
+                                        <textarea class="form-control" id="message" name="message" rows="7" required="" style="resize: none;"></textarea>
+                                      </div>                                      
+                                      <button type="submit" id="button" class="btn btn-primary">Enviar</button> <!--No funciona todavia-->
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
                   </div>
            </main>
            <footer><!--el copi-->
