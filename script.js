@@ -21,51 +21,105 @@ document.addEventListener("DOMContentLoaded", function () {
       const email = document.getElementById("email").value;
       const contraseña = document.getElementById("contraseña").value;
 
-      fetch("http://localhost:3000/registrar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          DNI,
-          nombre,
-          apellido,
-          telefono,
-          email,
-          contraseña,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            Swal.fire({
-              title: "Procesando...",
-              showConfirmButton: false,
-              allowOutsideClick: false,
-              willOpen: () => {
-                Swal.showLoading();
-              },
-            });
-            setTimeout(() => {
-              Swal.fire({
-                title: "Inicio de sesión exitoso",
-                icon: "success",
-                confirmButtonText: "Aceptar",
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  window.location.href = "index.html";
-                }
-              });
-            }, data.success);
-          } else {
-            Swal.fire("Error en el registro", "", "error");
-          }
-        })
-        .catch((error) => {
-          console.error("Error: ", error);
-        });
+      // Validaciones
+      if (
+        /^\d{1,8}$/.test(DNI) &&
+        /^[A-Za-z]+$/.test(nombre) &&
+        /^[A-Za-z]+$/.test(apellido) &&
+        /^\d{1,12}$/.test(telefono) &&
+        /\b(?:hotmail\.com|gmail\.com)\b/.test(email) &&
+        contraseña.length >= 8
+      ) {
+        // Verificar si el correo electrónico ya está registrado
+        verificarCorreoRepetido(email)
+          .then((correoRepetido) => {
+            if (!correoRepetido) {
+              // Realizar la solicitud de registro si las validaciones son exitosas y el correo no está repetido
+              fetch("http://localhost:3000/registrar", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  DNI,
+                  nombre,
+                  apellido,
+                  telefono,
+                  email,
+                  contraseña,
+                }),
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  if (data.success) {
+                    Swal.fire({
+                      title: "Procesando...",
+                      showConfirmButton: false,
+                      allowOutsideClick: false,
+                      willOpen: () => {
+                        Swal.showLoading();
+                      },
+                    });
+                    setTimeout(() => {
+                      Swal.fire({
+                        title: "Inicio de sesión exitoso",
+                        icon: "success",
+                        confirmButtonText: "Aceptar",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          window.location.href = "index.html";
+                        }
+                      });
+                    }, data.success);
+                  } else {
+                    Swal.fire("Error en el registro", "", "error");
+                  }
+                })
+                .catch((error) => {
+                  console.error("Error: ", error);
+                });
+            } else {
+              Swal.fire("Error en el registro. El correo electrónico ya está registrado.", "", "error");
+            }
+          })
+          .catch((error) => {
+            console.error("Error al verificar el correo electrónico: ", error);
+          });
+      } else {
+        Swal.fire("Error en el registro. Verifica tus datos.", "", "error");
+      }
     });
   }
+
+  // Función para verificar si el correo electrónico está repetido
+function verificarCorreoRepetido(correo) {
+  return fetch("http://localhost:3000/verificarCorreo", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      correo,
+    }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Error en la solicitud');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      return data.correoRepetido;
+    })
+    .catch((error) => {
+      console.error("Error al verificar el correo electrónico: ", error);
+      // Puedes manejar el error de forma adecuada, por ejemplo, devolviendo false
+      return false;
+    });
+}
+
+
+
   // INICIAR SESIÓN
   const loginForm = document.querySelector(".loginForm");
 
@@ -76,52 +130,67 @@ document.addEventListener("DOMContentLoaded", function () {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
-      fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            Swal.fire({
-              title: "Procesando...",
-              showConfirmButton: false,
-              allowOutsideClick: false,
-              willOpen: () => {
-                Swal.showLoading();
-              },
-            });
-            setTimeout(() => {
-              Swal.fire({
-                title: "Inicio de sesión exitoso",
-                icon: "success",
-                confirmButtonText: "Aceptar",
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  window.location.href = "../index.html";
-                  localStorage.setItem("usuarioLogueado", "true");
-                }
-              });
-            }, data.success);
-          } else {
-            Swal.fire(
-              "Error en el inicio de sesión. Verifica tus credenciales.",
-              "",
-              "error"
-            );
-          }
+      // Validaciones
+      if (
+        /\b(?:hotmail\.com|gmail\.com)\b/.test(email) &&
+        password.length >= 8
+      ) {
+        // Realizar la solicitud de inicio de sesión si las validaciones son exitosas
+        fetch("http://localhost:3000/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
         })
-        .catch((error) => {
-          console.error("Error: ", error);
-        });
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              Swal.fire({
+                title: "Procesando...",
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                willOpen: () => {
+                  Swal.showLoading();
+                },
+              });
+              setTimeout(() => {
+                Swal.fire({
+                  title: "Inicio de sesión exitoso",
+                  icon: "success",
+                  confirmButtonText: "Aceptar",
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    window.location.href = "../index.html";
+                    localStorage.setItem("usuarioLogueado", "true");
+                  }
+                });
+              }, data.success);
+            } else {
+              Swal.fire(
+                "Error en el inicio de sesión. Verifica tus credenciales.",
+                "",
+                "error"
+              );
+            }
+          })
+          .catch((error) => {
+            console.error("Error: ", error);
+          });
+      } else {
+        Swal.fire(
+          "Error en el inicio de sesión. Verifica tus datos.",
+          "",
+          "error"
+        );
+      }
     });
   }
+});
+
 
   if (usuarioLogueado === "true") {
     var divElement = document.createElement("div");
@@ -187,7 +256,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "index.html";
   });
  
-});
 
 
 document.getElementById("btnDescargarFormulario").addEventListener("click", function () {
