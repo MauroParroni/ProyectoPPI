@@ -63,12 +63,13 @@ footer{
     text-align: center;
     border: dotted 1px;
 }
+
 .h66{
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
 }
-@media (min-width: 990.98px) {
+@media (min-width: 998.98px) {
   .badge{
     display: none !important;
   }
@@ -101,7 +102,7 @@ footer{
     text-align: center;
     align-items: center;
   }
-  @media (max-width: 990.98px) {
+  @media (max-width: 998.98px) {
     .dropdown-menu.carreras-menu {
       width: max-content; /* Ajusta el ancho al contenido */
       white-space: nowrap; /* Evita que el texto se divida en varias líneas */
@@ -159,3 +160,5 @@ footer{
     width: 100%;
    }
   }   
+
+  
