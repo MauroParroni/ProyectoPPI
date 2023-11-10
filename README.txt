@@ -9,3 +9,6 @@ Hola pibes!
 7. Por ultimo instalé cors con 'npm install cors' para resolver problemas de restricciones entre puertos diferentes.
 
 Modifiqué el script.js para que funcione con esto nuevo y algunas cosas en el form que tiene los inputs en register.html.
+
+¡¡IMPORTANTE!!
+Para que funcione la base de datos hace falta poner el comando node server.js en la terminal.
