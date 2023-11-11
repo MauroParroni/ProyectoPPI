@@ -1,170 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
+<!---->
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio | Instituto Superior N° 25 "Beppo Levi"</title>
-    <link rel="stylesheet" href="./main.css">
-    <link rel="shortcut icon" href="./images/logo_beppo.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <!-- Metaetiquetas -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!------------------------------------------------------------------->
+  <!----------------Título de la Página----------------------->
+  <title>Inicio | Instituto Superior N° 25 "Beppo Levi"</title>
+  <!---------------------------------------------------------->
+  <!---------Enlaces y agregados---------->
+  <link rel="stylesheet" href="./main.css">
+  <link rel="shortcut icon" href="./images/logo_beppo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <!------------------------------------------------------------------------------------------------->
+  <!----------------------------------Boostrap---------------------------------------------------->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <!------------------------------>
 </head>
+<!---->
+<!---->
+
 <body>
-    <header class="row"> <!-- la cabeza de pagina -->
-      <img src="./images/61df8a6d-967d-48f3-b844-2a02c9fba4a4.png"  class="img-fluid" alt="Responsive image">
-           </header>
-           <nav> <!--barra de navegacion con sus respectivos dropdowns correspondientes-->
-             <div class="navbar navbar-expand-md shadow-sm bg-primary p-1 fixed-top aos-init aos-animate" data-bs-theme="dark" id="navbar" data-aos="fade-right">
-               <div>
-                 <a class="navbar-brand" href="./index.html">
-                   <img src="./images/logo_beppo.png" alt="" width="50" height="50">
-                 </a>
-               </div>
-               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
-               </button>
-               <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="botonSalir">
-                  <span class="navbar-brand mb-0 h1 col-sm-10"><h1  class="badge text-wrap">Instituto Superior Beppo Levi</h1></span>
-                  <button class="navbar-toggler btn-close collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="btn-close"></span>
-                  </button>
+  <!---Encabezado--->
+  <header class="row">
+    <img src="./images/61df8a6d-967d-48f3-b844-2a02c9fba4a4.png" class="img-fluid" alt="Responsive image">
+  </header>
+  <!------>
+  <!--barra de navegacion con sus respectivos dropdowns correspondientes-->
+  <nav>
+    <div class="navbar navbar-expand-md shadow-sm bg-primary p-1 fixed-top aos-init aos-animate" data-bs-theme="dark"
+      id="navbar" data-aos="fade-right">
+      <!-- Logo y Botón de Toggle -->
+      <div>
+        <a class="navbar-brand" href="./index.html">
+          <img src="./images/logo_beppo.png" alt="" width="50" height="50">
+        </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Contenido de la Barra de Navegación -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Logo y Botón de Toggle -->
+        <div class="botonSalir">
+          <!--Personalización-->
+          <span class="navbar-brand mb-0 h1 col-sm-10">
+            <h1 class="badge text-wrap">Instituto Superior Beppo Levi</h1>
+          </span>
+          <button class="navbar-toggler btn-close collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="btn-close"></span>
+          </button>
+        </div>
+        <!-- Enlaces de Navegación -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Lista de enlaces -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./pages/noticias.html">Noticias</a>
+          </li>
+          <li class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button">
+              Carreras
+            </a>
+            <ul class="dropdown-menu carreras-menu fondo_color dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="./pages/des_soft.html">TECNICO SUPERIOR EN DESARROLLO DE SOFTWARE</a>
+              </li>
+              <li><a class="dropdown-item" href="./pages/med_Amb.html">ANALISTA EN MEDIO AMBIENTE</a></li>
+              <li><a class="dropdown-item" href="./pages/com_Ext.html">TECNICO SUPERIOR EN COMERCIO EXTERIOR</a></li>
+              <li><a class="dropdown-item" href="./pages/ComYadm_empresas.html">TECNICO SUPERIOR EN COMERCIALIZACION Y
+                  ADMINISTRACION DE EMPRESAS</a></li>
+              <li><a class="dropdown-item" href="./pages/tec_HyS.html">TECNICO SUPERIOR EN HIGIENE Y SEGURIDAD</a></li>
+              <li><a class="dropdown-item" href="./pages/An_SC.html">ANALISTA EN SISTEMAS DE CONTROL</a></li>
+              <li><a class="dropdown-item" href="./pages/An_Mic.html">ANALISTA EN MICROELECTRONICA</a></li>
+              <li><a class="dropdown-item" href="./pages/QuimSupInd.html">QUIMICO SUPERIOR INDUSTRIAL</a></li>
+              <li><a class="dropdown-item" href="./pages/QuimSupAn.html">QUIMICO SUPERIOR ANALISTA</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./pages/Inscripcion.html">Descargar formulario de Inscripcion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"></a>
+          </li>
+        </ul>
+        <!--Extra-->
+        <div class="col-lg-2  d-flex botton2">
+          <!-- Contenido adicional -->
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Contenido Principal -->
+  <main>
+    <div class="textoCentrado">
+      <h1 style="font-family: Arial, Helvetica, sans-serif;">¡BIENVENIDOS!</h1>
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif;"><strong>Esta es la página web oficial del
+          Instituto Superior N° 25 "Beppo Levi"</strong></p>
+      <!-- Información adicional sobre el instituto -->
+      <p class="lead">
+        El Instituto Superior N° 25 "Beppo Levi", ubicado en Puerto Gral. San Martin y Rosario, es reconocido en la
+        región y el país por su educación superior de calidad. Su objetivo principal es ofrecer una formación integral a
+        los estudiantes, brindándoles habilidades y conocimientos para su carrera. Ofrecen una amplia variedad de
+        carreras y especializaciones diseñadas para enfrentar los desafíos laborales actuales. Cuentan con un cuerpo
+        docente altamente capacitado y comprometido, que trabaja en conjunto con los estudiantes para alcanzar sus
+        metas. En su página web se encuentra información sobre carreras, especializaciones, programas de estudio y
+        actividades extracurriculares. El instituto se destaca por su historia y valores, invitando a formar parte de su
+        comunidad educativa y descubrir todo lo que tienen para ofrecer.</p>
+    </div>
+    <!-- Sedes del Instituto con Mapas -->
+    <h5 class="textoCentrado"><u>Nuestras Sedes</u></h5>
+    <div class="row textoCentrado">
+      <!-- Información y Mapa de cada Sede -->
+      <div class="col-md-4">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5103.087219785936!2d-60.74015764930407!3d-32.710698772328364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b65b65f2e63b9f%3A0x45a8884e4e1ce9d9!2sInstituto%20Superior%20nro.%2025%20%22Beppo%20Levi%22!5e0!3m2!1ses!2sar!4v1683908578466!5m2!1ses!2sar"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <h5>Reconquista 813</h5>
+        <p class="lead">(2202) Puerto Gral. San</p>
+        <p class="lead">Santa Fe – República Argentina</p>
+        <p class="lead"> Tel.: (03476) 447580</p>
+      </div>
+      <div class="col-md-4">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1678.4148922629386!2d-60.73164756441803!3d-32.71715049402938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b65b72f65632df%3A0x71a32a7918add963!2sInstituto%20Superior%20N%C2%B0%2025%20Beppo%20Levi!5e0!3m2!1ses!2sar!4v1683908681029!5m2!1ses!2sar"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <h5>Avda. San Martín 245</h5>
+        <p class="lead">(2202) Puerto Gral. San Martín </p>
+        <p class="lead">Santa Fe – República Argentina</p>
+        <p class="lead">Tel.: (03476) 426219</p>
+      </div>
+      <div class="col-md-4">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1678.4148922629386!2d-60.73164756441803!3d-32.71715049402938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b65b72f65632df%3A0x71a32a7918add963!2sInstituto%20Superior%20N%C2%B0%2025%20Beppo%20Levi!5e0!3m2!1ses!2sar!4v1683908681029!5m2!1ses!2sar"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <h5>9 de Julio 1247</h5>
+        <p class="lead">(2000) Rosario</p>
+        <p class="lead">Santa Fe – República Argentina</p>
+        <p class="lead"> Tel.: (0341) 4247844</p>
+      </div>
+    </div>
+    <!-- Información de Atención y Sección de Contacto -->
+    <div class="row g-col-12 p-3">
+      <!-- Información sobre días y horarios de atención -->
+      <p class="fw-bold text-danger text-center">Días y horarios de Atención: Lunes a Viernes de 19:00 a 21:00 horas
+      </p>
+    </div>
+    <section class="py-3 my-3 aos-init aos-animate" data-aos="zoom-in" id="Contacto">
+      <!-- Formulario de Contacto y Redes Sociales -->
+      <div class="container grid text-center pt-3 ">
+        <div class="row g-col-12 p-3">
+          <h3 class="text-decoration-underline">Podes contactarnos en:</h3>
+        </div>
+        <div class="row filaSociales">
+          <div class="col-lg-4 m-lg-2">
+            <div class="row my-3">
+              <a href="https://www.instagram.com/iset25beppolevi" target="_blank" class="fw-bold fs-5">
+                <i class="bi bi-instagram"></i>
+                Instagram
+              </a>
+            </div>
+            <div class="row">
+              <iframe src="https://www.instagram.com/iset25beppolevi/embed" width="340" height="500"
+                style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+          </div>
+          <div class="col-lg-4 m-lg-2">
+            <div class="row my-3">
+              <a href="https://www.facebook.com/ISET25/?locale=es_LA" target="_blank" class="fw-bold fs-5">
+                <i class="bi bi-facebook"></i>
+                Facebook
+              </a>
+            </div>
+            <div class="row">
+              <iframe
+                src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/ISET25/?locale=es_LA&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId"
+                width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                allowfullscreen="true"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+          </div>
+          <div class="col-lg-3 mt-3">
+            <div class="row">
+              <h3 class="text-decoration-underline"
+                style="color:rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1)); font-size: 1.30rem!important;">
+                Gmail</h3>
+            </div>
+            <div class="row text-center">
+              <form class="col-md-6" id="form" style="width: 100%;">
+                <div class="mb-3">
+                  <label for="name" class="form-label labels">Nombre (requerido)</label>
+                  <input type="text" class="form-control" id="name" name="name" required="">
                 </div>
-                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                   <li class="nav-item">
-                     <a class="nav-link active" aria-current="page" href="./pages/noticias.html">Noticias</a>
-                   </li>
-                   <li class="nav-item dropdown ">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button">
-                       Carreras
-                     </a>
-                     <ul class="dropdown-menu carreras-menu fondo_color dropdown-menu-end" aria-labelledby="navbarDropdown">
-                       <li><a class="dropdown-item" href="./pages/des_soft.html">TECNICO SUPERIOR EN DESARROLLO DE SOFTWARE</a></li>
-                       <li><a class="dropdown-item" href="./pages/med_Amb.html">ANALISTA EN MEDIO AMBIENTE</a></li>
-                       <li><a class="dropdown-item" href="./pages/com_Ext.html">TECNICO SUPERIOR EN COMERCIO EXTERIOR</a></li>
-                       <li><a class="dropdown-item" href="./pages/ComYadm_empresas.html">TECNICO SUPERIOR EN COMERCIALIZACION Y ADMINISTRACION DE EMPRESAS</a></li>
-                       <li><a class="dropdown-item" href="./pages/tec_HyS.html">TECNICO SUPERIOR EN HIGIENE Y SEGURIDAD</a></li>
-                       <li><a class="dropdown-item" href="./pages/An_SC.html">ANALISTA EN SISTEMAS DE CONTROL</a></li>
-                       <li><a class="dropdown-item" href="./pages/An_Mic.html">ANALISTA EN MICROELECTRONICA</a></li>
-                       <li><a class="dropdown-item" href="./pages/QuimSupInd.html">QUIMICO SUPERIOR INDUSTRIAL</a></li>
-                       <li><a class="dropdown-item" href="./pages/QuimSupAn.html">QUIMICO SUPERIOR ANALISTA</a></li>
-                     </ul>
-                   </li>
-                   <li class="nav-item">
-                    <a class="nav-link" href="./pages/Inscripcion.html">Descargar formulario de Inscripcion</a>
-                  </li>
-                   <li class="nav-item">
-                     <a class="nav-link" href="#"></a>
-                   </li>
-                 </ul>
-                <div class="col-lg-2  d-flex botton2">
-              
-              </div>
-               </div>
-             </div>
-           </nav>
-           <main> <!--Contenido de la pagina-->
-                  <div class="textoCentrado">
-                    <h1 style="font-family: Arial, Helvetica, sans-serif;">¡BIENVENIDOS!</h1>
-                    <p style="font-family: Georgia, 'Times New Roman', Times, serif;"><strong>Esta es la página web oficial del Instituto Superior N° 25 "Beppo Levi"</strong></p><p class="lead">
-                      El Instituto Superior N° 25 "Beppo Levi", ubicado en Puerto Gral. San Martin y Rosario, es reconocido en la región y el país por su educación superior de calidad. Su objetivo principal es ofrecer una formación integral a los estudiantes, brindándoles habilidades y conocimientos para su carrera. Ofrecen una amplia variedad de carreras y especializaciones diseñadas para enfrentar los desafíos laborales actuales. Cuentan con un cuerpo docente altamente capacitado y comprometido, que trabaja en conjunto con los estudiantes para alcanzar sus metas. En su página web se encuentra información sobre carreras, especializaciones, programas de estudio y actividades extracurriculares. El instituto se destaca por su historia y valores, invitando a formar parte de su comunidad educativa y descubrir todo lo que tienen para ofrecer.</p>
-                  </div>
-                  <h5 class="textoCentrado"><u>Nuestras Sedes</u></h5>
-                  <div class="row textoCentrado">
-                    <div class="col-md-4">
-                      <div class="embed-responsive embed-responsive-16by9">
-                      <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5103.087219785936!2d-60.74015764930407!3d-32.710698772328364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b65b65f2e63b9f%3A0x45a8884e4e1ce9d9!2sInstituto%20Superior%20nro.%2025%20%22Beppo%20Levi%22!5e0!3m2!1ses!2sar!4v1683908578466!5m2!1ses!2sar"   allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
-                    </div>
-                    <h5>Reconquista 813</h5>
-                    <p class="lead">(2202) Puerto Gral. San</p> 
-                      <p class="lead">Santa Fe – República Argentina</p>
-                      <p class="lead"> Tel.: (03476) 447580</p>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="embed-responsive embed-responsive-16by9">
-                      <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1678.4148922629386!2d-60.73164756441803!3d-32.71715049402938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b65b72f65632df%3A0x71a32a7918add963!2sInstituto%20Superior%20N%C2%B0%2025%20Beppo%20Levi!5e0!3m2!1ses!2sar!4v1683908681029!5m2!1ses!2sar"   allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    <h5>Avda. San Martín 245</h5>
-                    <p class="lead">(2202) Puerto Gral. San Martín </p>
-                     <p class="lead">Santa Fe – República Argentina</p> 
-                     <p class="lead">Tel.: (03476) 426219</p>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1678.4148922629386!2d-60.73164756441803!3d-32.71715049402938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b65b72f65632df%3A0x71a32a7918add963!2sInstituto%20Superior%20N%C2%B0%2025%20Beppo%20Levi!5e0!3m2!1ses!2sar!4v1683908681029!5m2!1ses!2sar"   allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                      </div>
-                      <h5>9 de Julio 1247</h5>
-                      <p class="lead">(2000) Rosario</p>
-                      <p class="lead">Santa Fe – República Argentina</p> 
-                      <p class="lead"> Tel.: (0341) 4247844</p>
-                    </div>
-                  </div>
-                  <!-- Redes sociales y Contacto-->
-                  <div class="row g-col-12 p-3">
-                    <p class="fw-bold text-danger text-center">Días y horarios de Atención: Lunes a Viernes de 19:00 a 21:00 horas
-                    </p>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Tú correo electrónico (requerido)</label>
+                  <input type="email" class="form-control" id="email" name="email" required="">
                 </div>
-                <section class="py-3 my-3 aos-init aos-animate" data-aos="zoom-in" id="Contacto">
-                  <div class="container grid text-center pt-3 ">
-                      <div class="row g-col-12 p-3">
-                          <h3 class="text-decoration-underline">Podes contactarnos en:</h3>
-                      </div>
-                      <div class="row filaSociales">
-                          <div class="col-lg-4 m-lg-2">
-                              <div class="row my-3">
-                                  <a href="https://www.instagram.com/iset25beppolevi" target="_blank" class="fw-bold fs-5">
-                                      <i class="bi bi-instagram"></i>
-                                      Instagram
-                                  </a>
-                              </div>
-                              <div class="row">
-                                  <iframe src="https://www.instagram.com/iset25beppolevi/embed" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                              </div>
-                          </div>
-                          <div class="col-lg-4 m-lg-2">
-                              <div class="row my-3">
-                                  <a href="https://www.facebook.com/ISET25/?locale=es_LA" target="_blank" class="fw-bold fs-5">
-                                      <i class="bi bi-facebook"></i>
-                                      Facebook
-                                  </a>
-                              </div>
-                              <div class="row">
-                                  <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/ISET25/?locale=es_LA&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                              </div>
-                          </div>
-                          <div class="col-lg-3 mt-3">
-                              <div class="row">
-                                  <h3 class="text-decoration-underline" style="color:rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1)); font-size: 1.30rem!important;">Gmail</h3>
-                              </div>
-                              <div class="row text-center">
-                                  <form class="col-md-6" id="form" style="width: 100%;">
-                                      <div class="mb-3">
-                                          <label for="name" class="form-label labels">Nombre (requerido)</label>
-                                          <input type="text" class="form-control" id="name" name="name" required="">
-                                      </div>
-                                      <div class="mb-3">
-                                          <label for="email" class="form-label">Tú correo electrónico (requerido)</label>
-                                          <input type="email" class="form-control" id="email" name="email" required="">
-                                      </div>
-                                      <div class="mb-3">
-                                        <label for="message" class="form-label">Mensaje (requerido)</label>
-                                        <textarea class="form-control" id="message" name="message" rows="7" required="" style="resize: none;"></textarea>
-                                      </div>                                      
-                                      <button type="submit" id="button" class="btn btn-primary">Enviar</button> <!--No funciona todavia-->
-                                  </form>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-           </main>
-           <div class="lol"></div>
-           <footer><!--el copi-->
-            <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-                <div class="text-white mb-3 mb-md-0">
-                  Copyright © 2023. todos los derechos reservados a Franco L., Jeremías C., Mauro P., Maximiliano C.
+                <div class="mb-3">
+                  <label for="message" class="form-label">Mensaje (requerido)</label>
+                  <textarea class="form-control" id="message" name="message" rows="7" required=""
+                    style="resize: none;"></textarea>
                 </div>
-           </footer>
-           <script src="/script.js"></script>
+                <button type="submit" id="button" class="btn btn-primary">Enviar</button> <!--No funciona todavia-->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+  <!-- Como e' posible ete' suceso -->
+  <div class="lol"></div>
+  <!-- Pie de Página -->
+  <footer>
+    <!-- Información de Derechos de Autor B|-->
+    <div
+      class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+      <div class="text-white mb-3 mb-md-0">
+        Copyright © 2023. todos los derechos reservados a Franco L., Jeremías C., Mauro P., Maximiliano C.
+      </div>
+  </footer>
+  <!-- Script Personalizado -->
+  <script src="/script.js"></script>
 </body>
+
 </html>
