@@ -249,17 +249,18 @@ function verificarCorreoRepetido(correo) {
   }
 
   const cerrarSesionBtn = document.getElementById("BtnCerrarSesion");
-  cerrarSesionBtn.addEventListener("click", function () {
+  cerrarSesionBtn?.addEventListener("click", function () {
     localStorage.removeItem("usuarioLogueado");
     localStorage.setItem("usuarioLogueado","false")
 
     window.location.href = "index.html";
   });
  
+botonformulario = document.getElementById("btnDescargarFormulario")
 
-
-document.getElementById("btnDescargarFormulario").addEventListener("click", function () {
-    if (usuarioLogueado === "false") {
+botonformulario?.addEventListener("click", function () {
+    if (usuarioLogueado == "false") {
+      console.log(usuarioLogueado)
       Swal.fire({
         icon: "error",
         title: "Alto ahi maquina",
@@ -268,6 +269,6 @@ document.getElementById("btnDescargarFormulario").addEventListener("click", func
     } else {
       // Aquí va la lógica para descargar el formulario
       // Por ejemplo, podrías redirigir al usuario a una URL donde se encuentra el formulario para descargarlo
-      window.location.href = "ruta_al_formulario";
+      window.open("https://drive.google.com/drive/folders/1wuJWBCJ82B_rsxTeQOKdmks9-rj0D3cA", "_blank");
     }
   });
