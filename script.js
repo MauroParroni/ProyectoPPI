@@ -4,94 +4,7 @@ if (usuarioLogueado === null) {
   localStorage.setItem("usuarioLogueado", "false");
 }
 console.log(usuarioLogueado);
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  // REGISTRARSE
-  const form = document.querySelector(".Formulario_registro");
-
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const DNI = document.getElementById("DNI").value;
-      const nombre = document.getElementById("nombre").value;
-      const apellido = document.getElementById("apellido").value;
-      const telefono = document.getElementById("telefono").value;
-      const email = document.getElementById("email").value;
-      const contraseña = document.getElementById("contraseña").value;
-
-      // Validaciones
-      if (
-        /^\d{1,8}$/.test(DNI) &&
-        /^[A-Za-z]+$/.test(nombre) &&
-        /^[A-Za-z]+$/.test(apellido) &&
-        /^\d{1,12}$/.test(telefono) &&
-        /\b(?:hotmail\.com|gmail\.com)\b/.test(email) &&
-        contraseña.length >= 8
-      ) {
-        // Verificar si el correo electrónico ya está registrado
-        verificarCorreoRepetido(email)
-          .then((correoRepetido) => {
-            if (!correoRepetido) {
-              // Realizar la solicitud de registro si las validaciones son exitosas y el correo no está repetido
-              fetch("http://localhost:3000/registrar", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  DNI,
-                  nombre,
-                  apellido,
-                  telefono,
-                  email,
-                  contraseña,
-                }),
-              })
-                .then((response) => response.json())
-                .then((data) => {
-                  if (data.success) {
-                    Swal.fire({
-                      title: "Procesando...",
-                      showConfirmButton: false,
-                      allowOutsideClick: false,
-                      willOpen: () => {
-                        Swal.showLoading();
-                      },
-                    });
-                    setTimeout(() => {
-                      Swal.fire({
-                        title: "Inicio de sesión exitoso",
-                        icon: "success",
-                        confirmButtonText: "Aceptar",
-                      }).then((result) => {
-                        if (result.isConfirmed) {
-                          window.location.href = "index.html";
-                        }
-                      });
-                    }, data.success);
-                  } else {
-                    Swal.fire("Error en el registro", "", "error");
-                  }
-                })
-                .catch((error) => {
-                  console.error("Error: ", error);
-                });
-            } else {
-              Swal.fire("Error en el registro. El correo electrónico ya está registrado.", "", "error");
-            }
-          })
-          .catch((error) => {
-            console.error("Error al verificar el correo electrónico: ", error);
-          });
-      } else {
-        Swal.fire("Error en el registro. Verifica tus datos.", "", "error");
-      }
-    });
-  }
-
-  // Función para verificar si el correo electrónico está repetido
+// Función para verificar si el correo electrónico está repetido
 function verificarCorreoRepetido(correo) {
   return fetch("http://localhost:3000/verificarCorreo", {
     method: "POST",
@@ -103,21 +16,127 @@ function verificarCorreoRepetido(correo) {
     }),
   })
     .then((response) => {
-      if (!response.ok) {
-        throw new Error('Error en la solicitud');
-      }
-      return response.json();
+      return response.text().then((text) => {
+        console.log(text);
+        if (!response.ok) {
+          throw new Error('Error en la solicitud');
+        }
+        return JSON.parse(text);
+      });
     })
     .then((data) => {
       return data.correoRepetido;
     })
     .catch((error) => {
-      console.error("Error al verificar el correo electrónico: ", error);
-      // Puedes manejar el error de forma adecuada, por ejemplo, devolviendo false
+      console.error("Error al verificar el correo electrónico: ", error.message);
       return false;
     });
 }
 
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  // REGISTRARSE
+  const botonRegistro = document.querySelector(".botonregistro");
+
+if (botonRegistro) {
+  botonRegistro.addEventListener("click", function () {
+    // Obtener los valores de los campos del formulario
+    const DNI = document.getElementById("DNI").value;
+    const nombre = document.getElementById("nombre").value;
+    const apellido = document.getElementById("apellido").value;
+    const telefono = document.getElementById("telefono").value;
+    const email = document.getElementById("email").value;
+    const contraseña = document.getElementById("contraseña").value;
+
+    // Validaciones
+    if (
+      /^\d{1,8}$/.test(DNI) &&
+      /^[A-Za-z]+$/.test(nombre) &&
+      /^[A-Za-z]+$/.test(apellido) &&
+      /^\d{1,12}$/.test(telefono) &&
+      /\b(?:hotmail\.com|gmail\.com)\b/.test(email) &&
+      contraseña.length >= 8
+    ) {
+      // Verificar si el correo electrónico ya está registrado
+      verificarCorreoRepetido(email)
+        .then((correoRepetido) => {
+          if (!correoRepetido) {
+            Swal.fire({
+              title: "¿Los datos ingresados son correctos?",
+              html: `<p><strong>DNI:</strong> ${DNI}</p>
+                     <p><strong>Nombre:</strong> ${nombre}</p>
+                     <p><strong>Apellido:</strong> ${apellido}</p>
+                     <p><strong>Teléfono:</strong> ${telefono}</p>
+                     <p><strong>Email:</strong> ${email}</p>
+                     <p><strong>Contraseña:</strong> ${contraseña}</p>`,
+              showDenyButton: true,
+              confirmButtonText: "Registrarme",
+              denyButtonText: `Cancelar`
+            }).then((result) => {
+              if (result.isConfirmed) {
+                fetch("http://localhost:3000/registrar", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    DNI,
+                    nombre,
+                    apellido,
+                    telefono,
+                    email,
+                    contraseña,
+                  }),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    console.log("Respuesta del servidor:", data);
+
+                    if (data.success) {
+                      console.log("Registro exitoso");
+
+                      window.location.href = "../index.html";
+                    } else {
+                      console.log("Error en el registro");
+
+                      // Mostrar mensaje de error en el registro
+                      Swal.fire("Error en el registro", "", "error");
+                    }
+                  })
+                  .catch((error) => {
+                    console.error("Error al realizar la solicitud de registro:", error);
+                  });
+              } else if (result.isDenied) {
+                // Cambié el mensaje para que sea similar al de "Registro cancelado"
+                Swal.fire("Registro cancelado", "", "info");
+              }
+            });
+          } else {
+            console.log("Error en el registro. El correo electrónico ya está registrado.");
+
+            // Mostrar mensaje de error si el correo electrónico ya está registrado
+            Swal.fire("Error en el registro. El correo electrónico ya está registrado.", "", "error");
+          }
+        })
+        .catch((error) => {
+          console.error("Error al verificar el correo electrónico: ", error);
+        });
+    } else {
+      console.log("Error en el registro. Verifica tus datos.");
+
+      // Mostrar mensaje de error si las validaciones no son exitosas
+      Swal.fire("Error en el registro. Verifica tus datos.", "", "error");
+    }
+  });
+}
+
+
+  
+
+
+  
+  
 
 
   // INICIAR SESIÓN
