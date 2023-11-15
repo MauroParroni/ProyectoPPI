@@ -153,6 +153,65 @@ function mostrarUsuariosEnTabla(usuarios) {
     tablaBody.appendChild(fila);
   });
 }
+// btn descarga
+
+function descargarInformacion() {
+  // Crear un nuevo HTML específicamente formateado para Excel
+  var excelHtml = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">';
+  excelHtml += '<head><meta charset="utf-8"><meta http-equiv="content-type" content="application/vnd.ms-excel">';
+  excelHtml += '<style>table { border-collapse: collapse; } th, td { border: 1px solid black; padding: 8px; }</style>';
+  excelHtml += '</head><body>';
+  excelHtml += '<table>';
+
+  // Obtener el contenido de la tabla
+  var table = document.querySelector('.table');
+  var rows = table.rows;
+
+  // Agregar el encabezado "Inscripto" a la primera fila
+  var headerRow = rows[0];
+  var lastCell = document.createElement('th');
+  lastCell.innerText = 'Inscripto';
+  headerRow.appendChild(lastCell);
+
+  // Iterar sobre las filas y columnas de la tabla
+  for (var i = 0; i < rows.length; i++) {
+      excelHtml += '<tr>';
+      var cells = rows[i].cells;
+
+      // Iterar sobre las celdas
+      for (var j = 0; j < cells.length; j++) {
+          // Si es la última columna, obtener el valor del checkbox asociado
+          if (j === cells.length - 1) {
+              var checkbox = cells[j].querySelector('input[type="checkbox"]');
+              var checkboxValue = checkbox ? checkbox.checked : false;
+              excelHtml += '<td>' + checkboxValue + '</td>';
+          } else {
+              // Para otras columnas, simplemente obtener el texto
+              var cellData = cells[j].innerText || cells[j].textContent;
+              excelHtml += '<td>' + cellData + '</td>';
+          }
+      }
+
+      excelHtml += '</tr>';
+  }
+
+  excelHtml += '</table></body></html>';
+
+  // Crear un Blob y descargar el archivo
+  var blob = new Blob([excelHtml], { type: 'application/vnd.ms-excel' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'informacion_inscriptos.xls';
+
+  // Eliminar el encabezado "Inscripto" después de la descarga
+  headerRow.removeChild(lastCell);
+
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+
 
 
 // Llama a la función cuando sea necesario obtener los usuarios
