@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 });
 
 db.run(
-  "CREATE TABLE IF NOT EXISTS registros (DNI TEXT, nombre TEXT, apellido TEXT, telefono TEXT, email TEXT, contraseña TEXT)",
+  "CREATE TABLE IF NOT EXISTS registros (DNI TEXT, nombre TEXT, apellido TEXT, telefono TEXT, email TEXT, contraseña TEXT, carrera TEXT, status BOOLEAN DEFAULT 0)",
   (err) => {
     if (err) {
       console.error("Error al crear la tabla:", err);
@@ -27,11 +27,11 @@ db.run(
 );
 
 app.post("/registrar", (req, res) => {
-  const { DNI, nombre, apellido, telefono, email, contraseña } = req.body;
+  const { DNI, nombre, apellido, telefono, email, contraseña, carrera } = req.body;
 
   req.db.run(
-    "INSERT INTO registros (DNI, nombre, apellido, telefono, email, contraseña) VALUES (?, ?, ?, ?, ?, ?)",
-    [DNI, nombre, apellido, telefono, email, contraseña],
+    "INSERT INTO registros (DNI, nombre, apellido, telefono, email, contraseña, carrera, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+    [DNI, nombre, apellido, telefono, email, contraseña, carrera, 0], // Set status to 0 (false) by default
     (err) => {
       if (err) {
         console.error("Error al registrar:", err);
@@ -42,6 +42,7 @@ app.post("/registrar", (req, res) => {
     }
   );
 });
+
 
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
@@ -61,6 +62,20 @@ app.post("/login", (req, res) => {
     }
   );
 });
+
+app.get("/usuarios", (req, res) => {
+  req.db.all("SELECT * FROM registros", (err, rows) => {
+    if (err) {
+      console.error("Error al obtener usuarios", err);
+      res.status(500).json({ success: false, error: "Error al obtener usuarios" });
+    } else {
+      console.log("Registros de usuarios:", rows);
+      res.json({ success: true, usuarios: rows });
+    }
+  });
+});
+
+
 
 app.post("/verificarCorreo", (req, res) => {
     const { correo } = req.body;
