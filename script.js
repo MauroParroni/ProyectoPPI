@@ -478,3 +478,23 @@ botonformulario?.addEventListener("click", function () {
     );
   }
 });
+document.addEventListener('DOMContentLoaded', function() {
+  if (localStorage.getItem('recordar')) {
+    document.getElementById('email').value = localStorage.getItem('recordar');
+    document.getElementById('recordar').checked = true;
+  }
+});
+
+document.querySelector('form').addEventListener('submit', function(event) {
+  if (document.getElementById('recordar').checked) {
+    // Save the email in localStorage only if the checkbox is checked
+    localStorage.setItem('recordar', document.getElementById('email').value);
+  } else {
+    // Remove 'recordar' from localStorage if the checkbox is not checked
+    localStorage.removeItem('recordar');
+  }
+  // Continue with the form submission
+  // If you want to prevent the form from submitting, uncomment the following line:
+  // event.preventDefault();
+});
+
