@@ -20,7 +20,7 @@ main{
     background-image: url(./images/Fondo.jpg);
     background-size: cover;	 
     background-repeat: no-repeat;
-    background-attachment: fixed;  
+    background-attachment: fixed;
 }
 
 header{
