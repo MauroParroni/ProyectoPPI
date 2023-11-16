@@ -167,12 +167,6 @@ function descargarInformacion() {
   var table = document.querySelector('.table');
   var rows = table.rows;
 
-  // Agregar el encabezado "Inscripto" a la primera fila
-  var headerRow = rows[0];
-  var lastCell = document.createElement('th');
-  lastCell.innerText = 'Inscripto';
-  headerRow.appendChild(lastCell);
-
   // Iterar sobre las filas y columnas de la tabla
   for (var i = 0; i < rows.length; i++) {
       excelHtml += '<tr>';
@@ -180,15 +174,20 @@ function descargarInformacion() {
 
       // Iterar sobre las celdas
       for (var j = 0; j < cells.length; j++) {
-          // Si es la última columna, obtener el valor del checkbox asociado
-          if (j === cells.length - 1) {
-              var checkbox = cells[j].querySelector('input[type="checkbox"]');
-              var checkboxValue = checkbox ? checkbox.checked : false;
-              excelHtml += '<td>' + checkboxValue + '</td>';
+          // Si la celda es la que contiene "Inscripto", simplemente obtener el texto
+          if (cells[j].innerText.trim() === 'Inscripto') {
+              excelHtml += '<td>' + cells[j].innerText + '</td>';
           } else {
-              // Para otras columnas, simplemente obtener el texto
-              var cellData = cells[j].innerText || cells[j].textContent;
-              excelHtml += '<td>' + cellData + '</td>';
+              // Si es la última columna, obtener el valor del checkbox asociado
+              if (j === cells.length - 1) {
+                  var checkbox = cells[j].querySelector('input[type="checkbox"]');
+                  var checkboxValue = checkbox ? checkbox.checked : false;
+                  excelHtml += '<td>' + checkboxValue + '</td>';
+              } else {
+                  // Para otras columnas, simplemente obtener el texto
+                  var cellData = cells[j].innerText || cells[j].textContent;
+                  excelHtml += '<td>' + cellData + '</td>';
+              }
           }
       }
 
@@ -202,9 +201,6 @@ function descargarInformacion() {
   var a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'informacion_inscriptos.xls';
-
-  // Eliminar el encabezado "Inscripto" después de la descarga
-  headerRow.removeChild(lastCell);
 
   document.body.appendChild(a);
   a.click();
@@ -466,8 +462,8 @@ botonformulario?.addEventListener("click", function () {
     console.log(usuarioLogueado);
     Swal.fire({
       icon: "error",
-      title: "Alto ahi maquina",
-      text: "Debes registrarte primero",
+      title: "Aguarde un segundo",
+      text: "Debe registrarse primero",
     });
   } else {
     // Aquí va la lógica para descargar el formulario
@@ -478,23 +474,6 @@ botonformulario?.addEventListener("click", function () {
     );
   }
 });
-document.addEventListener('DOMContentLoaded', function() {
-  if (localStorage.getItem('recordar')) {
-    document.getElementById('email').value = localStorage.getItem('recordar');
-    document.getElementById('recordar').checked = true;
-  }
-});
 
-document.querySelector('form').addEventListener('submit', function(event) {
-  if (document.getElementById('recordar').checked) {
-    // Save the email in localStorage only if the checkbox is checked
-    localStorage.setItem('recordar', document.getElementById('email').value);
-  } else {
-    // Remove 'recordar' from localStorage if the checkbox is not checked
-    localStorage.removeItem('recordar');
-  }
-  // Continue with the form submission
-  // If you want to prevent the form from submitting, uncomment the following line:
-  // event.preventDefault();
-});
+
 

@@ -74,6 +74,25 @@
             Copyright © 2023. todos los derechos reservados a Franco L., Jeremías C., Mauro P., Maximiliano C.
           </div>
      </footer>
+     <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (localStorage.getItem('recordar')) {
+          document.getElementById('email').value = localStorage.getItem('recordar');
+          document.getElementById('recordar').checked = true;
+        }
+      });
+    
+      document.getElementById('recordar').addEventListener('change', function() {
+        if (this.checked) {
+          // Save the email in localStorage only if the checkbox is checked
+          localStorage.setItem('recordar', document.getElementById('email').value);
+        } else {
+          // Remove 'recordar' from localStorage if the checkbox is not checked
+          localStorage.removeItem('recordar');
+        }
+      });
+    </script>
+    
   <script src="../script.js"></script>
 </body>
 </html>
