@@ -84,10 +84,10 @@
     
       document.getElementById('recordar').addEventListener('change', function() {
         if (this.checked) {
-          // Save the email in localStorage only if the checkbox is checked
+          // Guarda el email en localStorage solo si el checkbox está tildado
           localStorage.setItem('recordar', document.getElementById('email').value);
         } else {
-          // Remove 'recordar' from localStorage if the checkbox is not checked
+          // Elimina 'recoradar' del localStorage si el checkbox no está tildado
           localStorage.removeItem('recordar');
         }
       });

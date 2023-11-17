@@ -36,7 +36,7 @@ function verificarCorreoRepetido(correo) {
     });
 }
 
-// INICIAR SESIÓN admin
+// INICIAR SESIÓN ADMIN
 async function verificarUsuario() {
   const loginForm = document.querySelector("#loginForm");
 
@@ -93,10 +93,6 @@ async function verificarUsuario() {
 }
 verificarUsuario();
 
-// Supongamos que ya tienes la función obtenerUsuarios
-// y que devuelve un arreglo de usuarios
-
-// Llama a la función cuando sea necesario obtener los usuarios
 obtenerUsuarios();
 
 async function obtenerUsuarios() {
@@ -124,7 +120,7 @@ function mostrarUsuariosEnTabla(usuarios) {
   // Limpiar el contenido existente de la tabla
   tablaBody.innerHTML = "";
 
-  // Iterar sobre cada usuario y crear una fila en la tabla
+  // Itera sobre cada usuario y crea una fila en la tabla
   usuarios.forEach((usuario) => {
     const fila = document.createElement("tr");
 
@@ -134,14 +130,14 @@ function mostrarUsuariosEnTabla(usuarios) {
       const celda = document.createElement("td");
     
       if (columna === "inscripto") {
-        // Crear un elemento checkbox y establecer su estado según el valor en el objeto de usuario
+        // Crea un elemento checkbox y establece su estado según el valor en el objeto de usuario
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
-        checkbox.checked = usuario[columna]; // Establecer el estado según el valor en el objeto de usuario
+        checkbox.checked = usuario[columna]; // Establece el estado según el valor en el objeto de usuario
         // Agregar la checkbox a la celda
         celda.appendChild(checkbox);
       } else {
-        // Para otras columnas, simplemente asignar el contenido de texto
+        // Para otras columnas, simplemente asigna el contenido de texto
         celda.textContent = usuario[columna];
       }
     
@@ -153,17 +149,16 @@ function mostrarUsuariosEnTabla(usuarios) {
     tablaBody.appendChild(fila);
   });
 }
-// btn descarga
 
 function descargarInformacion() {
-  // Crear un nuevo HTML específicamente formateado para Excel
+  // Crear un nuevo HTML formateado para Excel
   var excelHtml = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">';
   excelHtml += '<head><meta charset="utf-8"><meta http-equiv="content-type" content="application/vnd.ms-excel">';
   excelHtml += '<style>table { border-collapse: collapse; } th, td { border: 1px solid black; padding: 8px; }</style>';
   excelHtml += '</head><body>';
   excelHtml += '<table>';
 
-  // Obtener el contenido de la tabla
+  // Obtiene el contenido de la tabla
   var table = document.querySelector('.table');
   var rows = table.rows;
 
@@ -174,17 +169,17 @@ function descargarInformacion() {
 
       // Iterar sobre las celdas
       for (var j = 0; j < cells.length; j++) {
-          // Si la celda es la que contiene "Inscripto", simplemente obtener el texto
+          // Si la celda es la que contiene "Inscripto", simplemente obtiene el texto
           if (cells[j].innerText.trim() === 'Inscripto') {
               excelHtml += '<td>' + cells[j].innerText + '</td>';
           } else {
-              // Si es la última columna, obtener el valor del checkbox asociado
+              // Si es la última columna, obtiene el valor del checkbox asociado
               if (j === cells.length - 1) {
                   var checkbox = cells[j].querySelector('input[type="checkbox"]');
                   var checkboxValue = checkbox ? checkbox.checked : false;
                   excelHtml += '<td>' + checkboxValue + '</td>';
               } else {
-                  // Para otras columnas, simplemente obtener el texto
+                  // Para otras columnas, simplemente obtiene el texto
                   var cellData = cells[j].innerText || cells[j].textContent;
                   excelHtml += '<td>' + cellData + '</td>';
               }
@@ -196,7 +191,7 @@ function descargarInformacion() {
 
   excelHtml += '</table></body></html>';
 
-  // Crear un Blob y descargar el archivo
+  // Crea un Blob y descarga el archivo
   var blob = new Blob([excelHtml], { type: 'application/vnd.ms-excel' });
   var a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
@@ -207,9 +202,6 @@ function descargarInformacion() {
   document.body.removeChild(a);
 }
 
-
-
-
 // Llama a la función cuando sea necesario obtener los usuarios
 obtenerUsuarios();
 
@@ -219,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (botonRegistro) {
     botonRegistro.addEventListener("click", function () {
-      // Obtener los valores de los campos del formulario
+      // Obtiene los valores de los campos del formulario
       const DNI = document.getElementById("DNI").value;
       const nombre = document.getElementById("nombre").value;
       const apellido = document.getElementById("apellido").value;
@@ -239,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
         contraseña.length >= 8 &&
         carrera
       ) {
-        // Verificar si el correo electrónico ya está registrado
+        // Verifica si el correo electrónico ya está registrado
         verificarCorreoRepetido(email)
           .then((correoRepetido) => {
             if (!correoRepetido) {
@@ -283,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       } else {
                         console.log("Error en el registro");
 
-                        // Mostrar mensaje de error en el registro
+                        // Muestra mensaje de error en el registro
                         Swal.fire("Error en el registro", "", "error");
                       }
                     })
@@ -303,7 +295,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Error en el registro. El correo electrónico ya está registrado."
               );
 
-              // Mostrar mensaje de error si el correo electrónico ya está registrado
+              // Muestra mensaje de error si el correo electrónico ya está registrado
               Swal.fire(
                 "Error en el registro. El correo electrónico ya está registrado.",
                 "",
@@ -335,7 +327,7 @@ document.addEventListener("DOMContentLoaded", function () {
         /\b(?:hotmail\.com|gmail\.com)\b/.test(email) &&
         password.length >= 8
       ) {
-        // Realizar la solicitud de inicio de sesión si las validaciones son exitosas
+        // Realiza la solicitud de inicio de sesión si las validaciones son exitosas
         fetch("http://localhost:3000/login", {
           method: "POST",
           headers: {
@@ -466,8 +458,6 @@ botonformulario?.addEventListener("click", function () {
       text: "Debe registrarse primero",
     });
   } else {
-    // Aquí va la lógica para descargar el formulario
-    // Por ejemplo, podrías redirigir al usuario a una URL donde se encuentra el formulario para descargarlo
     window.open(
       "https://drive.google.com/drive/folders/1wuJWBCJ82B_rsxTeQOKdmks9-rj0D3cA",
       "_blank"

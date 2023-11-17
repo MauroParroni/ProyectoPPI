@@ -31,7 +31,7 @@ app.post("/registrar", (req, res) => {
 
   req.db.run(
     "INSERT INTO registros (DNI, nombre, apellido, telefono, email, contraseña, carrera, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-    [DNI, nombre, apellido, telefono, email, contraseña, carrera, 0], // Set status to 0 (false) by default
+    [DNI, nombre, apellido, telefono, email, contraseña, carrera, 0], // Pone el status en 0 (false) por defecto
     (err) => {
       if (err) {
         console.error("Error al registrar:", err);
